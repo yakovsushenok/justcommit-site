@@ -303,6 +303,101 @@
         opacity: 1;
       }
 
+      .social-links {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .social-links a {
+        color: white;
+        text-decoration: none;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+        font-size: 1.2rem;
+      }
+
+      .social-links a:hover {
+        opacity: 1;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        background: #f8f9ff;
+        padding: 80px 0;
+      }
+
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-category {
+        margin-bottom: 60px;
+      }
+
+      .faq-category-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .faq-category-description {
+        text-align: center;
+        color: #666;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .faq-item {
+        background: white;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .faq-question {
+        padding: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        color: #333;
+        transition: background-color 0.3s ease;
+      }
+
+      .faq-question:hover {
+        background-color: #f8f9ff;
+      }
+
+      .faq-answer {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .faq-answer.active {
+        padding: 20px;
+        max-height: 500px;
+      }
+
+      .faq-toggle {
+        color: #667eea;
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-toggle.active {
+        transform: rotate(180deg);
+      }
+
       /* Responsive Design */
       @media (max-width: 768px) {
         nav {
@@ -369,6 +464,54 @@
       .fade-in-up {
         animation: fadeInUp 0.8s ease-out;
       }
+
+      /* Slides Section */
+      .app-slides {
+        background: #f8f9ff;
+        padding: 60px 0 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .slides-flex {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .slide-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 4px 24px rgba(102, 126, 234, 0.08);
+        padding: 0;
+        max-width: 340px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        transition: transform 0.2s;
+      }
+      .slide-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.16);
+      }
+      .slide-card img {
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(102, 126, 234, 0.1);
+        display: block;
+      }
+      @media (max-width: 900px) {
+        .slides-flex {
+          flex-direction: column;
+          align-items: center;
+        }
+        .slide-card {
+          max-width: 95vw;
+        }
+      }
     </style>
   </head>
   <body>
@@ -378,7 +521,11 @@
           <img src="justCommitLogoTransparent.png" alt="Just Commit Logo" />
           <span>Just Commit</span>
         </div>
-        <a href="#download" class="cta-button">Download Now</a>
+        <a
+          href="https://apps.apple.com/us/app/just-commit/id6742356075"
+          class="cta-button"
+          >Download Now</a
+        >
       </nav>
     </header>
 
@@ -391,13 +538,30 @@
           prize pool. Available exclusively for Apple Watch.
         </p>
         <div class="hero-buttons fade-in-up">
-          <a href="#download"
-            ><img
+          <a href="https://apps.apple.com/us/app/just-commit/id6742356075">
+            <img
               src="Download_on_the_App_Store_Badge.svg"
               alt="Download on App Store"
               style="height: 50px"
-          /></a>
-          <a href="#learn-more" class="app-store-button">Learn More</a>
+            />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slides Section: Now directly after Hero, replaces How It Works -->
+    <section class="app-slides">
+      <div class="container">
+        <div class="slides-flex">
+          <div class="slide-card">
+            <img src="Slide_2.png" alt="Set Any Goal, Add a Stake" />
+          </div>
+          <div class="slide-card">
+            <img src="Slide_3.png" alt="Track Progress Automatically" />
+          </div>
+          <div class="slide-card">
+            <img src="Slide_4.png" alt="Your Success Pays Off" />
+          </div>
         </div>
       </div>
     </section>
@@ -408,93 +572,38 @@
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon">💰</div>
-            <h3>Financial Motivation</h3>
+            <h3>Behavioral Economics in Action</h3>
             <p>
-              Stake real money on your fitness goals. Meet them and keep your
-              money, or lose it to the community prize pool.
+              Research from the
+              <a
+                href="https://www.aeaweb.org/articles?id=10.1257/app.2.4.213"
+                target="_blank"
+                style="color: #667eea; text-decoration: underline"
+                >American Economic Association</a
+              >
+              shows financial incentives dramatically increase goal completion.
+              By staking money on your fitness goals, you leverage loss
+              aversion—making failure more costly than success.
             </p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">📱</div>
-            <h3>Apple Watch Integration</h3>
+            <h3>Seamless Integration & Accountability</h3>
             <p>
-              Seamlessly track your activities with Apple Watch and HealthKit.
-              Automatic progress tracking for steps, calories, distance, and
-              more.
+              Apple Watch integration eliminates friction between intention and
+              action. Automatic HealthKit tracking provides objective
+              measurement while maintaining privacy. Continuous monitoring
+              creates immediate accountability for your commitments.
             </p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🏆</div>
-            <h3>Weekly Prizes</h3>
+            <h3>Community-Driven Incentive Structure</h3>
             <p>
-              Earn from the community prize pool when you meet your goals and
-              maintain consistent activity levels.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>Flexible Goals</h3>
-            <p>
-              Set commitments for steps, calories, distance, duration, or heart
-              rate. Choose your own challenge level.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🔒</div>
-            <h3>Secure & Private</h3>
-            <p>
-              Your health data stays private. We use Apple's App Attest for
-              security and only track what you authorize.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3>Track Progress</h3>
-            <p>
-              Monitor your success rate, earnings, and overall fitness journey
-              with detailed statistics and insights.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="how-it-works">
-      <div class="container">
-        <h2 class="section-title">How It Works</h2>
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">1</div>
-            <h3>Set Your Goal</h3>
-            <p>
-              Choose your fitness target - steps, calories, distance, or
-              duration. Set your stake amount and deadline.
-            </p>
-          </div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <h3>Seamless Activity Sync</h3>
-            <p>
-              Your Apple Watch activities automatically sync via Apple Health to
-              track progress toward your commitment. No manual linking needed.
-            </p>
-          </div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <h3>Stay Active</h3>
-            <p>
-              Work toward your goal. The app tracks your progress in real-time
-              and updates your commitment status.
-            </p>
-          </div>
-          <div class="step">
-            <div class="step-number">4</div>
-            <h3>Commit & Conquer</h3>
-            <p>
-              Successfully complete your commitment to keep your stake. If you
-              miss your goal, your stake is added to the community prize pool.
-              By consistently meeting your goals, you become eligible to earn a
-              share of this weekly prize pool.
+              The community prize pool creates a positive-sum ecosystem where
+              successful participants benefit from collective commitment. This
+              social dimension amplifies motivation and rewards long-term
+              behavioral change over short-term compliance.
             </p>
           </div>
         </div>
@@ -533,13 +642,475 @@
           financial success. Download Just Commit today and start your journey
           toward better health and wealth.
         </p>
-        <a href="#">
+        <a href="https://apps.apple.com/us/app/just-commit/id6742356075">
           <img
             src="Download_on_the_App_Store_Badge.svg"
             alt="Download on App Store"
             style="height: 60px"
           />
         </a>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+
+        <div class="faq-container">
+          <!-- Commitments - How It Works -->
+          <div class="faq-category">
+            <h3 class="faq-category-title">Commitments - How It Works</h3>
+            <p class="faq-category-description">
+              Learn the basics of creating and managing your fitness commitments
+            </p>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                What is a commitment?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                A commitment is a personal challenge where you stake real money
+                to motivate yourself to achieve a specific fitness goal. You set
+                a goal (like walking 10,000 steps daily), choose how much money
+                to stake, and set a time period. If you achieve your goal, you
+                keep your stake and may earn from the reward pool. If you do not
+                meet your goal, your stake is contributed to the pool shared
+                with successful participants.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                How do I create a commitment?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                Tap the '+' button on the Commitments tab, then:<br /><br />
+                1. Choose your activity type (steps, calories, distance,
+                etc.)<br />
+                2. Set your goal amount and time period<br />
+                3. Choose how much money to stake<br />
+                4. Select 'Practice Mode' for a trial run, or proceed to stake
+                real money<br />
+                5. Review your commitment details<br />
+                6. Sign with your finger to confirm<br /><br />
+                You'll need a valid payment method on file before creating
+                staked commitments.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                What is Practice Mode?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                Practice Mode lets you try commitments without staking money.
+                It's perfect for:<br /><br />
+                • Testing if your goals are realistic<br />
+                • Getting familiar with how the app tracks your progress<br />
+                • Understanding how commitments work before staking money<br /><br />
+                Practice commitments simulate the full experience with no
+                financial risk or reward.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                What happens when I sign a commitment?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                When you sign a commitment:<br /><br />
+                1. Your payment method is verified for the staked amount<br />
+                2. The commitment becomes active<br />
+                3. The app begins tracking your progress automatically<br />
+                4. You can monitor your progress in real-time<br />
+                5. At the deadline, the app automatically evaluates if you
+                succeeded<br /><br />
+                Your signature serves as digital consent to participate in a
+                voluntary goal challenge using the amount you've staked.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                What happens if I don't meet my goal?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                If you do not meet your goal, your staked amount is contributed
+                to a shared reward pool distributed among users who successfully
+                completed their commitments. This system helps reinforce
+                motivation through meaningful commitment, while also benefiting
+                the broader user community.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                Is staking money required to use the app?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                No. Staking is completely optional. Users can choose Practice
+                Mode to participate in all commitment features without any
+                financial involvement. The core features of goal setting and
+                progress tracking are accessible to all users regardless of
+                financial participation.
+              </div>
+            </div>
+          </div>
+
+          <!-- Commitments - Rules & Verification -->
+          <div class="faq-category">
+            <h3 class="faq-category-title">
+              Commitments - Rules & Verification
+            </h3>
+            <p class="faq-category-description">
+              Comprehensive Q&A about how commitments are evaluated, success
+              criteria, and verification processes
+            </p>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                How are commitments verified?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                Commitments are automatically reviewed by our system at the
+                designated deadline:<br /><br />
+                • We analyze synced activity data from Apple Health<br />
+                • The system checks whether your metrics meet the goal you
+                defined<br />
+                • Verification is fully automated and impartial<br />
+                • Results are typically finalized within 24 hours of your
+                deadline<br />
+                • Each commitment card will display a status of SUCCESS or
+                INCOMPLETE<br /><br />
+                The system relies solely on your Apple Watch and iPhone data and
+                does not allow manual intervention.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                What does 'SUCCESS' vs 'INCOMPLETE' mean?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                Your commitment status reflects whether you met your defined
+                target:<br /><br />
+                • SUCCESS: You reached or exceeded your goal (e.g., walked
+                10,000+ steps when the target was 10,000)<br />
+                • INCOMPLETE: You didn't meet the required metric (e.g., walked
+                9,999 steps for a 10,000-step target)<br /><br />
+                There is no partial credit. This keeps the evaluation
+                transparent and fair.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                When exactly is my commitment evaluated?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                Commitment review timing varies by type:<br /><br />
+                • Single-day commitments: Evaluated at 11:59:59 PM on that
+                day<br />
+                • Multi-day commitments: Evaluated at 11:59:59 PM on the final
+                day<br />
+                • The system waits an additional 24 hours to allow delayed
+                Health data to sync<br />
+                • Final results are confirmed within 48 hours<br /><br />
+                This grace period ensures all your data is accurately accounted
+                for.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                What if I don't wear my Apple Watch during my commitment?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                Wearing your Apple Watch is essential for complete tracking:<br /><br />
+                • Missing data may result in an incomplete status<br />
+                • The system cannot verify activities that weren't recorded<br /><br />
+                To ensure the most accurate results, wear your watch
+                consistently throughout your commitment period.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                Can I manually add activities or edit my data?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                To maintain fairness and consistency:<br /><br />
+                • Only data from Apple Health is accepted<br />
+                • Activities must be recorded by Apple Watch or a trusted
+                Health-compatible app<br />
+                • Manual entries in Apple Health are not considered<br /><br />
+                This ensures a level playing field across all users.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                What if my internet connection fails during a commitment?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                No need to worry—temporary connection issues won't affect your
+                commitment:<br /><br />
+                • Activities are stored locally on your device<br />
+                • Data is synced automatically once you're back online<br />
+                • You have a 24-hour grace period for syncing before final
+                review<br /><br />
+                Just open the app after reconnecting to ensure your activity is
+                uploaded.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                How accurate is the activity tracking?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                We rely on Apple's official Health data for accuracy:<br /><br />
+                • Apple Watch uses industry-leading sensors for tracking<br />
+                • Step and distance data are typically within 1-2% accuracy<br />
+                • Calorie metrics are personalized using your age, weight, and
+                heart rate<br />
+                • GPS data is used when available for distance verification<br /><br />
+                We do not modify or reinterpret Apple's data—what you see is
+                what we use.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                Can I appeal a commitment result?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                Appeals are reserved for rare and valid exceptions:<br /><br />
+                • Syncing issues with Apple Health<br />
+                • Medical emergencies<br />
+                • Verified app bugs or device errors<br /><br />
+                If you believe a mistake was made, please contact our support
+                team with documentation. Routine appeals are not supported.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                What counts as 'cheating' and how is it handled?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                We take commitment integrity seriously to protect our
+                community:<br /><br />
+                • Fabricated activity entries<br />
+                • Artificial movement simulation devices<br />
+                • Sharing devices to boost stats<br />
+                • Attempts to tamper with tracking data<br /><br />
+                Violations may result in account restrictions or removal. Our
+                system monitors for irregularities and enforces standards
+                fairly.
+              </div>
+            </div>
+          </div>
+
+          <!-- Money & Payments -->
+          <div class="faq-category">
+            <h3 class="faq-category-title">Money & Payments</h3>
+            <p class="faq-category-description">
+              Comprehensive Q&A about the financial aspects of the app
+            </p>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                How does the staking system work?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                When you choose to stake money on a commitment, that amount is
+                held and only processed if the goal is not met:<br /><br />
+                • If your goal is not completed, your stake is collected within
+                24–48 hours after the deadline<br />
+                • The amount is the full staked value—no partial deductions<br />
+                • Commitments completed successfully result in no charges<br />
+                • The stake from unmet commitments is added to a community-based
+                reward pool<br /><br />
+                This optional system adds accountability by encouraging users to
+                follow through on their goals.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                Where does my staked money go if I don't meet my goal?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                Your staked amount is repurposed to support the community reward
+                structure:<br /><br />
+                • 85% of unclaimed stakes go to the weekly prize pool shared
+                among successful users<br />
+                • 15% covers operational expenses (infrastructure, support,
+                payment processing)<br />
+                • This model rewards those who meet their goals and reinforces
+                collective motivation<br />
+                • The prize pool is viewable in the Stats tab<br /><br />
+                In short, your contribution supports others on their fitness
+                journey.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                What payment methods are accepted?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                We accept most major debit and credit cards:<br /><br />
+                • Visa, Mastercard, American Express, Discover<br />
+                • Debit cards from leading financial institutions<br />
+                • Valid cards must have sufficient funds<br />
+                • Most international cards are supported<br />
+                • All payments are processed securely through Stripe<br /><br />
+                Before joining a staked commitment, you'll need a valid card
+                saved under Settings → Payment → Debit/Credit Cards.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                When will I be charged?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                You are only charged your stake if the goal tied to your
+                commitment is not met:<br /><br />
+                • No charges occur if the commitment is completed
+                successfully<br />
+                • If your goal is unmet, your stake is collected within 24–48
+                hours after the deadline<br />
+                • The grace period ensures accurate data syncing before
+                evaluation<br />
+                • You'll receive a confirmation notification if a stake is
+                collected<br />
+                • The charge may appear as 'Goal Commitment' or similar on your
+                statement<br /><br />
+                There are no surprise charges—only the exact amount you chose to
+                stake is processed if the outcome is incomplete.
+              </div>
+            </div>
+          </div>
+
+          <!-- Rewards & Prize Pool -->
+          <div class="faq-category">
+            <h3 class="faq-category-title">Rewards & Prize Pool</h3>
+            <p class="faq-category-description">
+              Comprehensive Q&A about earning money and the reward system
+            </p>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                How do I earn money from the app?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                You can earn money by meeting your goals and qualifying for
+                weekly reward distributions:<br /><br />
+                • Successfully complete your commitments for the week<br />
+                • Meet the weekly activity threshold (2,800+ active calories)<br />
+                • Maintain at least one active commitment<br />
+                • Pass our standard account verification process<br />
+                • Rewards are sourced from unused staked funds from incomplete
+                commitments<br /><br />
+                Payouts are processed every Sunday and become available for
+                withdrawal within 3–5 business days.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                How is the weekly reward pool distributed?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                Each Friday, the shared reward pool is distributed evenly among
+                all eligible participants:<br /><br />
+                • The pool is composed of unused stakes from incomplete
+                commitments<br />
+                • Each eligible user receives an equal share<br />
+                • Distribution is currently flat, not weighted by activity or
+                stake<br />
+                • More participants mean smaller individual shares<br />
+                • Future updates may include proportional reward distribution<br /><br />
+                Your estimated share is available in the Stats tab, with amounts
+                based on participation and pool size.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                What are the activity thresholds for rewards?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                To qualify for weekly rewards, you must meet our baseline
+                activity level:<br /><br />
+                • Minimum: 2,800 active calories burned per week<br />
+                • Roughly 400 active calories per day on average<br />
+                • Active calories are tracked via Apple Watch during exercise
+                and movement<br />
+                • Must be achieved in the same week as your successful
+                commitments<br /><br />
+                These requirements ensure rewards go to active and engaged
+                users.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                Why do I have 'pending' vs 'available' money?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                We separate earnings into two types for clarity and security:<br /><br />
+                • Pending: Recently earned, awaiting processing<br />
+                • Available: Ready for withdrawal<br />
+                • Pending balances convert to available each Friday<br />
+                • This delay allows time for payment validation and reversals<br />
+                • View both balances under Settings → Withdraw Funds<br /><br />
+                This system helps ensure accurate and reliable payouts.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                How do I withdraw my earnings?
+                <span class="faq-toggle">▼</span>
+              </div>
+              <div class="faq-answer">
+                You can easily transfer your earnings to PayPal:<br /><br />
+                • Add your PayPal email in Settings → PayPal Account<br />
+                • Navigate to Settings → Withdraw Funds<br />
+                • Tap 'Withdraw' to move your full available balance<br />
+                • Funds are typically received within 1–3 business days<br /><br />
+                Note: Partial withdrawals are not currently supported.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -554,6 +1125,44 @@
             <a href="privacypolicy.html">Privacy Policy</a>
             <a href="termsofuse.html">Terms of Use</a>
           </div>
+        </div>
+        <div
+          class="social-links"
+          style="justify-content: center; margin-top: 20px"
+        >
+          <a
+            href="https://www.instagram.com/justcommit.app/"
+            target="_blank"
+            title="Follow us on Instagram"
+          >
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://www.tiktok.com/@just_commit_app?_t=ZT-8xoyo1mxKDF&_r=1"
+            target="_blank"
+            title="Follow us on TikTok"
+          >
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 4 15.39a6.34 6.34 0 0 0 10.86 4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61561657905553"
+            target="_blank"
+            title="Follow us on Facebook"
+          >
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+              />
+            </svg>
+          </a>
         </div>
         <p style="margin-top: 20px; opacity: 0.7">
           © 2025 Just Commit. All rights reserved.
@@ -600,6 +1209,20 @@
           el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
           observer.observe(el);
         });
+
+      // FAQ Toggle Function
+      function toggleFAQ(element) {
+        const answer = element.nextElementSibling;
+        const toggle = element.querySelector(".faq-toggle");
+
+        if (answer.classList.contains("active")) {
+          answer.classList.remove("active");
+          toggle.classList.remove("active");
+        } else {
+          answer.classList.add("active");
+          toggle.classList.add("active");
+        }
+      }
     </script>
   </body>
 </html>
